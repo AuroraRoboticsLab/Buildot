@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://botlxipq2npgv"]
+
+[ext_resource type="PackedScene" uid="uid://vqxoblxlpu55" path="res://buildot/modules/L_truss_curve.tscn" id="1_sytmu"]
+[ext_resource type="PackedScene" uid="uid://c4j8x0r4tcf0k" path="res://buildot/support/buildot_UI.tscn" id="1_yo3hx"]
+[ext_resource type="PackedScene" uid="uid://bpucx6s0fthpy" path="res://buildot/modules/L_truss_straight.tscn" id="2_2p273"]
+[ext_resource type="Script" uid="uid://btsyuhpb6idn5" path="res://buildot/support/demo_truss_plugs.gd" id="2_mqhoj"]
+
+[node name="DemoTrussScene" type="Node3D"]
+
+[node name="BuildotUI" parent="." node_paths=PackedStringArray("active_plug", "camera") instance=ExtResource("1_yo3hx")]
+active_plug = NodePath("../L_truss/plugs/next")
+camera = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.333412, 0.942781, 0, -0.942781, 0.333412, -0.00380445, 6.24257, 2.22512)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.946018, -9.31323e-10, 0.324116, -0.323891, 0.0372018, 0.945363, -0.0120577, -0.999308, 0.0351936, 2.29695, 6.69961, 0.249411)
+
+[node name="L_truss" parent="." instance=ExtResource("1_sytmu")]
+transform = Transform3D(0.882878, 0.00153393, 0.4696, -0.00157225, 0.999999, -0.000310512, -0.4696, -0.000464161, 0.882879, -1.59969, 0, -0.049274)
+
+[node name="base" parent="L_truss" index="1"]
+visible = false
+
+[node name="L_truss2_curve" parent="." instance=ExtResource("1_sytmu")]
+transform = Transform3D(0.844468, 0.00291041, -0.535599, 0.0794168, 0.988251, 0.130585, 0.529686, -0.15281, 0.834315, 3.19278, 0, 0.687791)
+visible = false
+
+[node name="L_truss3_straight" parent="." instance=ExtResource("2_2p273")]
+transform = Transform3D(0.948517, 0, 0.316725, -0.0421026, 0.991125, 0.126087, -0.313914, -0.132931, 0.9401, -0.376219, 0, 2.39125)
+visible = false
+
+[node name="mate_demo" type="Node3D" parent="."]
+script = ExtResource("2_mqhoj")
+
+[editable path="L_truss"]

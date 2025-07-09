@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4j8x0r4tcf0k"]
+
+[ext_resource type="Texture2D" uid="uid://b5mo262eoknt4" path="res://buildot/modules/L_truss_curve.png" id="1_gxkkn"]
+[ext_resource type="Script" uid="uid://bbrnmsiv2fccl" path="res://buildot/support/buildot_ui.gd" id="1_ipkil"]
+[ext_resource type="Texture2D" uid="uid://dj6c0k1nlualn" path="res://buildot/modules/L_truss_straight.png" id="2_eyeli"]
+
+[node name="BuildotUI" type="Node3D"]
+script = ExtResource("1_ipkil")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="ModuleIcons" type="HBoxContainer" parent="UI/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TrussCurve" type="Button" parent="UI/ScrollContainer/ModuleIcons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_stretch_ratio = 0.27
+tooltip_text = "Truss Curved Segment"
+icon = ExtResource("1_gxkkn")
+
+[node name="TrussStraight" type="Button" parent="UI/ScrollContainer/ModuleIcons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_stretch_ratio = 0.27
+tooltip_text = "Truss Straight Segment"
+icon = ExtResource("2_eyeli")

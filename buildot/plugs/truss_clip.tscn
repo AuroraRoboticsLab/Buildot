@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://2nylxkg60fe5"]
+
+[ext_resource type="Script" uid="uid://1ndk2cklgli8" path="res://buildot/support/buildot_plug.gd" id="1_l0rxr"]
+[ext_resource type="Material" uid="uid://cl550n801ls84" path="res://buildot/support/buildot_glow_material.tres" id="2_25xf4"]
+[ext_resource type="Material" uid="uid://25gjbcnalnmx" path="res://buildot/support/buildot_glow_passive_material.tres" id="3_gdplq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6vgu"]
+material = ExtResource("2_25xf4")
+size = Vector3(0.5, 0.5, 0.1)
+
+[node name="truss_clip" type="Node3D"]
+script = ExtResource("1_l0rxr")
+
+[node name="active_UI" type="Node3D" parent="."]
+
+[node name="glow_box" type="MeshInstance3D" parent="active_UI"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0.05)
+mesh = SubResource("BoxMesh_c6vgu")
+skeleton = NodePath("../..")
+
+[node name="passive_UI" type="Node3D" parent="."]
+visible = false
+
+[node name="dim_box" type="MeshInstance3D" parent="passive_UI"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0.05)
+mesh = SubResource("BoxMesh_c6vgu")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_gdplq")

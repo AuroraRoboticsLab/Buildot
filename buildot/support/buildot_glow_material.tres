@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cl550n801ls84"]
+
+[ext_resource type="Texture2D" uid="uid://008t0p3o3sut" path="res://buildot/support/buildot_glow_grid.svg" id="1_n01vb"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
+roughness = 0.15
+emission_enabled = true
+emission = Color(0, 0, 0.603922, 1)
+emission_texture = ExtResource("1_n01vb")
+uv1_scale = Vector3(2, 2, 2)

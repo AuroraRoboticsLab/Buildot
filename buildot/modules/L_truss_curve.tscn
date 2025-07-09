@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vqxoblxlpu55"]
+
+[ext_resource type="PackedScene" uid="uid://w8gk3fjnh5pu" path="res://buildot/modules/truss/L_truss_upright_simplified.glb" id="1_vrej8"]
+[ext_resource type="PackedScene" uid="uid://2nylxkg60fe5" path="res://buildot/plugs/truss_clip.tscn" id="2_875fk"]
+
+[node name="L_truss" type="Node3D"]
+
+[node name="mesh" type="Node3D" parent="."]
+
+[node name="L_truss_upright_simplified" parent="mesh" instance=ExtResource("1_vrej8")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, -0.035, 0)
+
+[node name="base" parent="." instance=ExtResource("2_875fk")]
+transform = Transform3D(-0.382683, 0, 0.923879, 0, 1, 0, -0.923879, 0, -0.382683, -1.4, 0, 0)
+
+[node name="plugs" type="Node3D" parent="."]
+
+[node name="next" parent="plugs" instance=ExtResource("2_875fk")]
+transform = Transform3D(0.382683, 0, 0.92388, 0, 1, 0, -0.92388, 0, 0.382683, 1.4, 0, 0)
